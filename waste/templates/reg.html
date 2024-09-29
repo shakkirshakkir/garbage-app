@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-image: url('https://media.gettyimages.com/id/1752218227/photo/online-shopping-by-smartphone-with-flying-recycled-boxes.jpg?s=2048x2048&w=gi&k=20&c=gx1Ex3HpESu4t5RrtcL_2NF7yw9UC4AVbU4EbZT0cuU='); /* Replace 'your-background-image.jpg' with your actual background image URL */
+      background-size: cover;
+      background-position: center;
+      height: 100vh; /* Ensures full viewport height */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .registration-form {
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for form */
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%; /* Adjust width as needed */
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    /* Optional: Style for form elements */
+    .form-control {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="registration-form">
+    <h2 class="form-header text-dark">Registration</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        {{ form.as_p }}
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success">Register</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

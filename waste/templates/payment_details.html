@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment and Success Alert</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom styles -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh; /* Full viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden; /* Prevent scrolling */
+      background-image: url('https://media.istockphoto.com/id/1476751468/photo/portrait-of-young-businesswoman-showing-smart-card-for-travel-on-gray-background-stoke-photo.jpg?s=2048x2048&w=is&k=20&c=3iFp6isWI0X66KCvnwZC7gK2tkBh59o2TmOdZvczujA='); /* Replace with your background image path */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .container {
+      position: relative; /* Ensure content stays above background */
+      z-index: 1;
+      text-align: center; /* Center content vertically and horizontally */
+      color: white; /* Text color for contrast */
+    }
+
+    .form-control {
+      border-color: #ddd; /* Light gray border for form inputs */
+    }
+
+    .btn-success {
+      background-color: #28a745; /* Green button color */
+      border-color: #28a745; /* Matching border color */
+    }
+
+    .btn-success:hover {
+      background-color: #218838; /* Darker green on hover */
+      border-color: #1e7e34; /* Darker border on hover */
+    }
+
+    .alert {
+      margin-top: 20px; /* Spacing above the alert */
+      display: none; /* Initially hide the alert */
+      opacity: 0; /* Start with opacity 0 for fade-in effect */
+      transition: opacity 0.5s ease-in-out; /* CSS transition for fade-in effect */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="bg-primary text-center p-3 text-white mb-4">Enter Payment Details</h2>
+    
+    <!-- Payment success message -->
+    <div id="paymentSuccessAlert" class="alert alert-success" role="alert">
+      Your payment has been processed successfully!
+    </div>
+
+    <!-- Payment form -->
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form id="paymentForm" method="post">
+          <!-- CSRF Token -->
+          {% csrf_token %}
+
+          <div class="form-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" name="card_number" placeholder="Enter card number" required>
+          </div>
+          <div class="form-group">
+            <label for="expiryDate">Expiry Date</label>
+            <input type="text" class="form-control" id="expiryDate" name="expiry_date" placeholder="MM/YY" required>
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="Enter CVV" required>
+          </div>
+          <button id="submitPayment" type="button" class="btn btn-success btn-lg btn-block">Submit Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap and jQuery JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    $(document).ready(function() {
+      $('#submitPayment').click(function() {
+        // Serialize form data
+        var formData = $('#paymentForm').serialize();
+
+        // Submit form via AJAX
+        $.ajax({
+          type: 'POST',
+          url: '/your-server-endpoint/', // Replace with your server-side endpoint
+          data: formData,
+          success: function(response) {
+            // Simulate form submission process (replace with actual success check)
+            setTimeout(function() {
+              $('#paymentSuccessAlert').css('display', 'block').animate({ opacity: 1 }, 300); // Show success alert with fade-in effect
+            }, 1500); // Delay for 1.5 seconds (simulating server response time)
+          },
+          error: function(xhr, status, error) {
+            console.error('Error:', error);
+            // Handle error (optional)
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

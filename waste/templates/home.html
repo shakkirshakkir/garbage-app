@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-image: url('https://media.gettyimages.com/id/1307006092/photo/mother-throwing-vegetable-waste-in-dustbin-while-her-daughter-is-watching-her.jpg?s=2048x2048&w=gi&k=20&c=N1t6bYc2v72bpfbYgF8Rcz4WTBj-QAC-0sBFIGT1jE8='); /* Replace with your background image URL */
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page-content {
+      padding: 20px;
+    }
+
+    .page-header {
+      background-color: #ffc107; /* Bootstrap warning color (yellow) */
+      color: #333;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      background-color: #28a745; /* Updated color to green */
+      color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      margin-bottom: 20px;
+    }
+
+    .form-container button {
+      margin-top: 10px;
+    }
+
+    .btn-success {
+      background-color: #28a745; /* Green button color */
+      border-color: #28a745; /* Matching border color */
+    }
+
+    .btn-success:hover {
+      background-color: #218838; /* Darker green on hover */
+      border-color: #1e7e34; /* Darker border on hover */
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="page-header">
+    <h2>Home &gt;&gt;</h2>
+  </div>
+
+  <div class="container page-content">
+    <div class="section-title">
+      <h3>Bio Degradable Waste</h3>
+    </div>
+
+    <div class="form-container">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div class="text-center">
+          <button class="btn btn-success">Proceed To Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Make Payment</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom CSS for background image and additional styling -->
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-image: url('https://payu.in/blog/wp-content/uploads/2022/01/How-do-online-payments-work-in-India.png'); /* Replace with your background image URL */
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff; /* Text color for better contrast with the background */
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for better readability */
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .btn-success {
+      background-color: #28a745; /* Green button color */
+      border-color: #28a745;
+    }
+
+    .btn-success:hover {
+      background-color: #218838; /* Darker green on hover */
+      border-color: #1e7e34;
+    }
+
+    .modal-content {
+      background-color: #333333; /* Dark modal background */
+      color: #ffffff; /* Modal text color */
+    }
+
+    .modal-header {
+      border-bottom: none; /* Remove border from modal header */
+    }
+
+    .modal-footer {
+      border-top: none; /* Remove border from modal footer */
+    }
+  </style>
+
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h2 class="bg-primary text-center p-3">Make Payment</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/static/css/new7.jpg" alt="Image" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <h3>Service Type: <span id="serviceType">Service Name</span></h3>
+        <h3>Total Weight: <span id="totalWeight">10 KG</span></h3>
+        <h3>Minimum Service Charge: Rs.100/-</h3>
+        
+        <!-- Button to initiate payment -->
+        <!-- <button id="paymentButton" class="btn btn-success btn-lg mt-3">Pay Now</button> -->
+        <div class="text-center">
+          <a class="btn btn-success" href="{% url 'payment_details' %}">Proceed To Payment Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for payment confirmation -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="paymentModalLabel">Payment Confirmation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Payment details can be shown here -->
+          <p>Your payment has been processed successfully.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Replace this with actual payment processing logic
+    document.getElementById('paymentButton').addEventListener('click', function() {
+      // Simulate payment processing delay
+      setTimeout(function() {
+        $('#paymentModal').modal('show'); // Show modal on success
+      }, 1500); // Delay for 1.5 seconds (simulating payment processing)
+    });
+  </script>
+</body>
+</html>
